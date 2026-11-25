@@ -40,81 +40,97 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B0C0E]/95 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 md:h-[72px] flex items-center justify-between gap-8">
-        {/* Zone 1: Brand Wordmark */}
-        <a
-          href="#/"
-          onClick={(e) => {
-            e.preventDefault();
-            handleLinkClick('/');
-          }}
-          aria-label="RUVEN Home"
-          className="whitespace-nowrap shrink-0 focus-visible:outline-offset-4"
-        >
-          <BrandMark tone="dark" />
-        </a>
-
-        {/* Zone 2: Clean Single-Line Navigation Links */}
-        <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => {
-            const active = currentPath === link.path;
-            return (
-              <a
-                key={link.path}
-                href={`#${link.path}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(link.path);
-                }}
-                aria-current={active ? 'page' : undefined}
-                className={`text-sm whitespace-nowrap shrink-0 transition-colors duration-150 relative py-1 ${
-                  active
-                    ? 'text-[#F4F2EC] font-medium'
-                    : 'text-[#A5AAB4] hover:text-[#F4F2EC]'
-                }`}
-              >
-                {link.label}
-                {active && (
-                  <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-[#C8FF2E]" />
-                )}
-              </a>
-            );
-          })}
-        </nav>
-
-        {/* Zone 3: Single Primary Action + Mobile Drawer Trigger */}
-        <div className="flex items-center gap-3 shrink-0">
+    <>
+      <header className="sticky top-0 z-50 border-b border-white/15 bg-[#0B0C0E]/95 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 md:h-[72px] flex items-center justify-between gap-8">
+          {/* Zone 1: Brand Wordmark */}
           <a
-            href="#/contact"
+            href="#/"
             onClick={(e) => {
               e.preventDefault();
-              handleLinkClick('/contact');
+              handleLinkClick('/');
             }}
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold bg-[#C8FF2E] text-[#0B0C0E] rounded-sm hover:bg-[#D6FF5C] transition-colors duration-150 whitespace-nowrap shrink-0"
+            aria-label="RUVEN Home"
+            className="whitespace-nowrap shrink-0 focus-visible:outline-offset-4"
           >
-            <span>Let&apos;s Talk</span>
-            <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+            <BrandMark tone="dark" />
           </a>
 
-          <button
-            type="button"
-            onClick={() => setMobileOpen((prev) => !prev)}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-nav-drawer"
-            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            className="md:hidden inline-flex items-center justify-center w-11 h-11 border border-white/15 rounded-sm text-[#F4F2EC] hover:border-white/30"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
+          {/* Zone 2: Clean Single-Line Navigation Links */}
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map((link) => {
+              const active = currentPath === link.path;
+              return (
+                <a
+                  key={link.path}
+                  href={`#${link.path}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(link.path);
+                  }}
+                  aria-current={active ? 'page' : undefined}
+                  className={`text-sm whitespace-nowrap shrink-0 transition-colors duration-150 relative py-1 ${
+                    active
+                      ? 'text-[#F4F2EC] font-medium'
+                      : 'text-[#A5AAB4] hover:text-[#F4F2EC]'
+                  }`}
+                >
+                  {link.label}
+                  {active && (
+                    <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-[#C8FF2E]" />
+                  )}
+                </a>
+              );
+            })}
+          </nav>
 
-      {/* Mobile Navigation Drawer */}
+          {/* Zone 3: Single Primary Action + Mobile Drawer Trigger */}
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href="#/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                handleLinkClick('/contact');
+              }}
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold bg-[#C8FF2E] text-[#0B0C0E] rounded-sm hover:bg-[#D6FF5C] transition-colors duration-150 whitespace-nowrap shrink-0"
+            >
+              <span>Let&apos;s Talk</span>
+              <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setMobileOpen((prev) => !prev)}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav-drawer"
+              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              className={`md:hidden inline-flex items-center justify-center gap-2 min-h-[44px] px-3.5 rounded-sm text-xs font-semibold transition-colors duration-150 whitespace-nowrap shrink-0 border ${
+                mobileOpen
+                  ? 'bg-[#C8FF2E] text-[#0B0C0E] border-[#C8FF2E]'
+                  : 'bg-[#181B20] text-[#F4F2EC] border-white/35 hover:border-[#C8FF2E]'
+              }`}
+            >
+              {mobileOpen ? (
+                <>
+                  <X className="w-4 h-4" aria-hidden="true" />
+                  <span>Close</span>
+                </>
+              ) : (
+                <>
+                  <Menu className="w-4 h-4 text-[#C8FF2E]" aria-hidden="true" />
+                  <span>Menu</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Navigation Drawer (rendered outside backdrop-blur header for true viewport fixed positioning) */}
       {mobileOpen && (
         <div
           id="mobile-nav-drawer"
-          className="md:hidden fixed inset-x-0 top-16 bottom-0 bg-[#0B0C0E] border-t border-white/10 z-50 px-6 py-8 flex flex-col justify-between"
+          className="md:hidden fixed inset-x-0 top-16 bottom-0 bg-[#0B0C0E] border-t border-white/15 z-50 px-6 py-8 flex flex-col justify-between overflow-y-auto"
         >
           <nav aria-label="Mobile navigation" className="flex flex-col divide-y divide-white/10">
             {NAV_LINKS.map((link, idx) => {
@@ -159,6 +175,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };

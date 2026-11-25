@@ -8,6 +8,7 @@ import {
   ServiceId,
   TARGET_BUSINESSES,
 } from '../data/content';
+import { FaqSection } from '../components/FaqSection';
 import { HeroArchitecture } from '../components/HeroArchitecture';
 import { Reveal } from '../components/Reveal';
 import { ServiceVisual } from '../components/ServiceVisuals';
@@ -316,7 +317,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 7. CLOSING CTA */}
+      {/* 7. FAQ SECTION */}
+      <FaqSection onNavigate={(path) => onNavigate(path)} />
+
+      {/* 8. CLOSING CTA */}
       <section className="bg-[#0B0C0E] text-[#F4F2EC] architectural-grid-dark">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 md:py-28">
           <Reveal>

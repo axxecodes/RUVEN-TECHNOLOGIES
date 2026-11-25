@@ -270,6 +270,51 @@ export const PHILOSOPHY_PILLARS = [
   },
 ] as const;
 
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+export const FAQ_ITEMS: FaqItem[] = [
+  {
+    id: 'single-or-full-system',
+    question: 'Do we need to book all four services at once?',
+    answer:
+      'No. You can start with the part that is slowing you down most—whether that is UGC video creatives, Meta and TikTok media buying, or WhatsApp automation. We design each piece so it can stand on its own now and connect into a unified growth system whenever you are ready.',
+  },
+  {
+    id: 'whatsapp-human-feel',
+    question: 'Will WhatsApp automation make our brand sound robotic?',
+    answer:
+      'Not when it is structured properly. We write flows around the exact questions your buyers already ask—pricing, sizing, availability, and delivery—using short, natural messages. Whenever a customer needs nuanced help or a custom order, the thread hands off cleanly to your team.',
+  },
+  {
+    id: 'process-timeline',
+    question: 'What does the onboarding and launch process look like?',
+    answer:
+      'Every engagement follows our five-step loop: Discover, Create, Attract, Convert, and Optimise. We start by auditing where attention and leads are currently dropping off, then script and build your first batch of creatives alongside your conversion flows before launching controlled tests.',
+  },
+  {
+    id: 'nigeria-and-global',
+    question: 'Do you only work with businesses in Nigeria?',
+    answer:
+      'No. While we are grounded in Nigeria and understand high-touch, chat-driven commerce deeply, we work with ecommerce stores and consumer brands across international markets. Our ad testing and conversion workflows adapt to your local payment, shipping, and checkout setup.',
+  },
+  {
+    id: 'existing-team',
+    question: 'What if we already run ads or have an in-house team?',
+    answer:
+      'That works well. We regularly plug into existing Meta and TikTok ad accounts, creative teams, or online stores to fix specific bottlenecks—such as supplying fresh UGC testing angles or automating post-click WhatsApp follow-ups and abandoned-cart recovery.',
+  },
+  {
+    id: 'measuring-growth',
+    question: 'How do you measure whether the system is actually working?',
+    answer:
+      'We focus on commercial traction rather than vanity reach: how well opening hooks hold attention, cost per qualified conversation or checkout, response speed, recovered carts, and completed orders. Both creative decisions and automation tweaks are guided by those numbers.',
+  },
+];
+
 export const PAGE_META = {
   home: {
     title: 'RUVEN — Attract. Convert. Grow.',
