@@ -1,0 +1,6 @@
+{
+  "name": "RUVEN",
+  "description": "A marketing technology and customer acquisition company. Attract. Convert. Grow.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
